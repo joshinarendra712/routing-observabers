@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Iproduct } from 'src/app/shared/model/product';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
@@ -8,10 +9,14 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./edit-product.component.scss']
 })
 export class EditProductComponent implements OnInit {
- productObj:Iproduct | undefined;
-  constructor(private productservice: ProductsService) { }
+  productObj: Iproduct | undefined;
+  productId!: number;
+  constructor(private productservice: ProductsService, private route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.productObj = this.productservice.getProduct(1)
+    this.route.params.subscribe((myparam: Params) => {
+      this.productId = +myparam['id']
+      this.productObj = this.productservice.getProduct(this.productId)
+    })
   }
 
 }
