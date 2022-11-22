@@ -1,0 +1,14 @@
+<div class="form-group">
+	<label for="Pname">Product Name</label>
+	<input type="text" [value]="productObj?.Pname" class="form-control">
+</div>
+<div class="form-group">
+	<select  class="form-control">
+		<option [value]="'In progress'">In progress</option>
+		<option [value]="'Dispatched'">Dispatched</option>
+		<option [value]="'Delivered'">Delivered</option>
+	</select>
+</div>
+<div class="form-group">
+	<button class="btn btn-primary">update</button>
+</div>
