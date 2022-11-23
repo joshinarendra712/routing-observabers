@@ -9,7 +9,8 @@ import { ProductsService } from '../shared/services/products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  productArr:Iproduct[] = []
+  productArr:Iproduct[] = [];
+  ActiveId:number = 1;
   constructor(private productservice:ProductsService, private router:ActivatedRoute) { }
   ngOnInit(): void {
     this.productArr = this.productservice.getAllProducts()

@@ -2,13 +2,16 @@
 	<div class="col-md-6">
 		<ul class="list-group">
 			<li class="list-group-item" 
-			[routerLink]="['/products',prod.Pid]" [class.active]="prod.Pid===1" *ngFor="let prod of productArr">
+			[routerLink]="['/products',prod.Pid]" [class.active]="prod.Pid===ActiveId "
+			(click)="ActiveId = prod.Pid"
+				*ngFor="let prod of productArr">
 				{{prod.Pname}}
 			</li>
 		</ul>
 	</div>
 	<div class="col-md-6">
-	<!-- <app-edit-product></app-edit-product> -->
-	<!-- <app-product></app-product> -->
+		<!-- <app-edit-product></app-edit-product> -->
+		<!-- <app-product></app-product> -->
+		<router-outlet></router-outlet>
 	</div>
 </div>

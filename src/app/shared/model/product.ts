@@ -1,5 +1,6 @@
 export interface Iproduct{
 	Pname:string;
 	Pid:number;
-	Pstatus:string
+	Pstatus:string;
+	CanEdit:number;
 }

@@ -4,4 +4,5 @@
 <p>
 	The Product Id is <strong>{{ProductObj?.Pid}}</strong> and Status is <strong>{{ProductObj?.Pstatus}}</strong>
 </p>
-<button class="btn btn-primary"> Edit Product</button>
+<button class="btn btn-primary" [routerLink]="['/products', ProductObj?.Pid,'Edit']"
+[queryParams]="['/products',ProductObj?.Pid, 'Edit', CanEdit]" [queryParamsHandling]=""> Edit Product</button>

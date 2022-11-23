@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Iproduct } from 'src/app/shared/model/product';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
@@ -9,12 +9,19 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  ProductObj:Iproduct | undefined;
-  ProdId = 1
-  constructor(private productservice:ProductsService , private route:ActivatedRoute) { }
+  ProductObj: Iproduct | undefined;
+  ProdId = 1;
+  CanEdit!: number;
+  constructor(private productservice: ProductsService, private route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.ProdId = +this.route.snapshot.params['id']
-    
-    this.ProductObj = this.productservice.getProduct(this.ProdId)
+    // this.ProdId = +this.route.snapshot.params['id']
+    this.route.params.subscribe((myparam: Params) => {
+      this.ProdId = +myparam['id']
+      this.ProductObj = this.productservice.getProduct(this.ProdId)
+    })
+    this.route.queryParams.subscribe((myparam: Params)=>{
+      console.log(myparam);
+      this.CanEdit = +myparam;
+    })
   }
 }

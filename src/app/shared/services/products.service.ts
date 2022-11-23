@@ -9,17 +9,20 @@ export class ProductsService {
     {
       Pname:'Samsung',
       Pid:1,
-      Pstatus:'In Progress'
+      Pstatus:'In Progress',
+      CanEdit:1
     },
     {
       Pname:'Samsung 31V',
       Pid:2,
-      Pstatus:'Dispatched'
+      Pstatus:'Dispatched',
+      CanEdit:1
     },
     {
       Pname:'Iphone OnePlus',
       Pid:3,
-      Pstatus:'Delivered'
+      Pstatus:'Delivered',
+      CanEdit:0
     }
   ]
   constructor() { }

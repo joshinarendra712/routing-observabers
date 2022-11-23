@@ -18,10 +18,9 @@ export class UserComponent implements OnInit {
   this.route.params.subscribe((myparam:Params)=>{
     // console.log(myparam);
     this.UserId = +myparam['id']   
-  
+    this.userObj = this.userservice.getUser(this.UserId)
      
   })
-    this.userObj = this.userservice.getUser(this.UserId)
     // console.log(this.userObj);
 
   }

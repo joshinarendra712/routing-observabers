@@ -8,7 +8,8 @@ import { UsersService } from '../shared/services/users.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  UserArr:Iuser[] =[] 
+  UserArr:Iuser[] =[] ;
+  ActivatedId:number = 1;
   constructor(private userservice:UsersService){}
   ngOnInit(): void {
     this.UserArr = this.userservice.getAlluser()
